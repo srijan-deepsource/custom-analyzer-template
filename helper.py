@@ -55,3 +55,11 @@ def make_issue(issue_code, issue_txt, filepath, line, col):
             }
         }
     }
+
+
+def get_files(base_dir):
+    """Return a generator with filepaths in base_dir."""
+    for subdir, _, filenames in os.walk(base_dir):
+        for filename in filenames:
+            filepath = os.path.join(subdir, filename)
+            yield filepath
